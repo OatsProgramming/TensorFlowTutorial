@@ -116,4 +116,8 @@ After running the three models, you would notice how it starts to worsen
 This is a prime example of 'overfitting'
 Think of it as overtraining or studying too much in one sitting; this ultimately leads to a burn out
 In machine learning, we need to find the goldilucks zone while also making the algorithm as efficient as possible
+
+"   Overfitting happens when a model learns the detail and noise in the training data to the extent that it 
+    negatively impacts the performance of the model on new data. This means that the noise or random fluctuations 
+    in the training data is picked up and learned as concepts by the model "
 '''
