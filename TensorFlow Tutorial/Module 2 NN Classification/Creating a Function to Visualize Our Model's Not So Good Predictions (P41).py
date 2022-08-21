@@ -98,3 +98,4 @@ plot_decision_boundary(model_2, X, y)
 # To learn more abt plot decision boundary check 
 #   CS231n Convolutional Neural Networks for Visual Recognition
 #   Made with ML
+
