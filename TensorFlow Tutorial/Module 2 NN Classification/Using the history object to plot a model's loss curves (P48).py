@@ -1,6 +1,7 @@
 import tensorflow as tf
 import numpy as np
 import matplotlib.pyplot as plt
+import pandas as pd
 from sklearn.datasets import make_circles
 from sklearn.model_selection import train_test_split
 from os import system
@@ -44,7 +45,7 @@ def plot_decision_boundary(model, x, y):
     plt.scatter(x[:, 0], x[:, 1], c = y, s = 40, cmap = plt.cm.RdYlBu)
     plt.xlim(xx.min(), xx.max())
     plt.ylim(yy.min(), yy.max())
-    #plt.show()
+    
 
 # Set seed
 tf.random.set_seed(42)
@@ -74,10 +75,6 @@ history = model_7.fit(X, y, epochs = 100, verbose = 0)
 
 #plot_decision_boundary(model_7, X, y)
 
-'------------------------------------------------------------'
-'------------------------------------------------------------'
-'------------------------------------------------------------'
-
 # Lets get our training and testing datasets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state=42)
 
@@ -96,4 +93,31 @@ plot_decision_boundary(model_7, X_train, y_train)
 plt.subplot(1, 2, 2)    # 1 row 2 columns the second plot is the Testing plot
 plt.title("Test")
 plot_decision_boundary(model_7, X_test, y_test)
+#plt.show()
+
+'------------------------------------------------------------'
+'------------------------------------------------------------'
+'------------------------------------------------------------'
+
+# Plot the loss (aka training) curves to visualize
+
+# What does fit() actually do?
+#   Returns history objects:
+#       History.history attribute is a record of training loss values and metric values at successive
+#       as well as validation loss values and validation metrics values (if applicable)
+
+print('\nHISTORY OF LOSS VALUES AND METRICS VALUES:\n')
+print(history_7.history)
+
+# Since we can't exactly understand the history object rn
+# Lets turn it into a Dataframe
+print('\nHISTORY DATAFRAME:\n')
+dataframe = pd.DataFrame(history_7.history)
+print(dataframe)
+
+# Plot the loss curves
+dataframe.plot()
+plt.title('Model_7 Loss Curves')
 plt.show()
+
+# The plot should be intuitive
